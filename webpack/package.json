@@ -1,0 +1,63 @@
+{
+  "name": "hy-cli",
+  "version": "0.0.1",
+  "description": "基础脚手架",
+  "main": "index.js",
+  "repository": "https://github.com/haoyinag/hy-cli.git",
+  "author": "郁南 <haoyinag0@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack --config config/webpack.dev.js --mode development",
+    "build": "webpack --config config/webpack.prod.js --mode production",
+    "test": "jest",
+    "test-c": "jest --coverage"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-async-to-generator": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
+    "babel-loader": "^8.0.0-beta.6",
+    "babel-plugin-const-enum": "^1.1.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "core-js": "^3.19.1",
+    "html-webpack-plugin": "^5.5.0",
+    "less": "^4.1.2",
+    "less-loader": "^10.2.0",
+    "mini-css-extract-plugin": "^2.4.4",
+    "react-refresh": "^0.10.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.0.0-rc.6",
+    "webpack-cli": "^4.0.0-rc.1"
+  },
+  "dependencies": {
+    "css-loader": "^6.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "yargs": "^17.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,less,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    "ie >= 10",
+    "ff >= 30",
+    "chrome >= 34",
+    "safari >= 8",
+    "opera >= 23"
+  ]
+}
