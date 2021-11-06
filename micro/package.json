@@ -6,6 +6,10 @@
   "author": "郁南 <yunan.chen@hairobotics.com>",
   "license": "MIT",
   "dependencies": {
-    "parcel": "^2.0.0"
+    "axios": "^0.24.0",
+    "express": "^4.17.1",
+    "parcel": "^2.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
