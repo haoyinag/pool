@@ -1,0 +1,11 @@
+{
+  "name": "pool",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/haoyinag/pool.git",
+  "author": "郁南 <yunan.chen@hairobotics.com>",
+  "license": "MIT",
+  "dependencies": {
+    "parcel": "^2.0.0"
+  }
+}
