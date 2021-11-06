@@ -2,30 +2,31 @@
  * @Author: 郁南
  * @LastEditors: 郁南
  * @Date: 2021-11-06 16:53:54
- * @LastEditTime: 2021-11-06 18:21:51
+ * @LastEditTime: 2021-11-06 19:07:16
  * @FilePath: \micro\src\index.js
  * @Description: 微应用处理逻辑
  */
 
 // 获取loaditon的protocol和host
-const __WindowLPH = () => window.location.protocol + '//' + window.location.host // 获取地址：协议+域名/IP
+// const __WindowLPH = () => window.location.protocol + '//' + window.location.host // 获取地址：协议+域名/IP
 
 // 处理script-item、style-item
-const __handleSSitem = async (item, entryPath, [key, key2]) => {
-  if (item && item[key] && item[key2]) {
-    const url = __WindowLPH()
-    return fetch(`${entryPath}/${item[key2]}`.replace(url, ''))
-      .then(res => res?.text())
-      .catch(err => console.log('标签请求出错：', err))
-  } else {
-    return Promise.resolve(item.textContent)
-  }
-}
+// const __handleSSitem = async (item, entryPath, [key, key2]) => {
+//   if (item && item[key] && item[key2]) {
+//     const url = __WindowLPH()
+//     return fetch(`${entryPath}/${item[key2]}`.replace(url, ''))
+//       .then(res => res?.text())
+//       .catch(err => console.log('标签请求出错：', err))
+//   } else {
+//     return Promise.resolve(item.textContent)
+//   }
+// }
 
 const Apps = [] // 应用list
 
 // 注册微应用
 export const registryApp = (entry, activeRoute) => {
+  console.log(0, entry, activeRoute)
   Apps.push({ entry, activeRoute })
 }
 
@@ -37,6 +38,7 @@ export const loadApp = async () => {
   // 异步请求app
   fetch(App.entry)
     .then(res => {
+      console.log(111, res)
       // 读取到应用，获取text()返回的DOM节点
       return res?.text()
     })
@@ -48,6 +50,7 @@ export const loadApp = async () => {
       const entryPath = App.entry // 入口地址
       const subApp = document.getElementById('subApp-content') // 基座应用的微应用挂载节点
       subApp.appendChild(dom) // 把微应用容器插入基座容器中
+      console.log(222, subApp)
       handleScripts(entryPath, subApp, dom) // 处理script标签
       handleStyles(entryPath, subApp, dom) // 处理样式文件
     })

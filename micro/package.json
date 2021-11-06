@@ -5,11 +5,22 @@
   "repository": "https://github.com/haoyinag/pool.git",
   "author": "郁南 <yunan.chen@hairobotics.com>",
   "license": "MIT",
+  "scripts": {
+    "s1": "node ./example/server/subapp1.js",
+    "s2": "node ./example/server/subapp2.js",
+    "start": "parcel index.html"
+  },
   "dependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.0",
     "axios": "^0.24.0",
     "express": "^4.17.1",
     "parcel": "^2.0.0",
+    "parcel-bundler": "^1.12.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  }
+  },
+  "files": [
+    "src"
+  ]
 }

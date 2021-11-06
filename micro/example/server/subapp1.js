@@ -2,7 +2,7 @@
  * @Author: 郁南
  * @LastEditors: 郁南
  * @Date: 2021-11-06 18:22:30
- * @LastEditTime: 2021-11-06 18:24:30
+ * @LastEditTime: 2021-11-06 19:37:13
  * @FilePath: \micro\example\server\subapp1.js
  * @Description: 微应用app
  */
@@ -21,6 +21,10 @@ app.all('*', function (req, res, next) {
 })
 app.use(express.static(resolve(__dirname, '../subapp1')))
 
-app.listen(8889, err => {
-  !err && console.log('8889端口成功')
+app.post(
+  'https://open.feishu.cn/open-apis/bot/v2/hook/f72dc8cb-f0a9-43af-93ea-0b5e39cc46c5?text=request example'
+)
+
+app.listen(3333, err => {
+  !err && console.log('3333端口成功')
 })

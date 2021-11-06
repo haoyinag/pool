@@ -2,7 +2,7 @@
  * @Author: 郁南
  * @LastEditors: 郁南
  * @Date: 2021-11-06 18:22:30
- * @LastEditTime: 2021-11-06 18:23:11
+ * @LastEditTime: 2021-11-06 18:34:33
  * @FilePath: \micro\example\server\subapp2.js
  * @Description: 微应用app
  */
@@ -21,6 +21,6 @@ app.all('*', function (req, res, next) {
 })
 app.use(express.static(resolve(__dirname, '../subapp2')))
 
-app.listen(8889, err => {
-  !err && console.log('8889端口成功')
+app.listen(8899, err => {
+  !err && console.log('8899端口成功')
 })
