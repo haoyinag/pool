@@ -4,6 +4,7 @@
   "main": "index.js",
   "repository": "https://github.com/haoyinag/pool.git",
   "author": "郁南 <yunan.chen@hairobotics.com>",
+  "description": "参考自https://github.com/JinJieTan/Peter-/tree/master/chunchao，有侵告知删",
   "license": "MIT",
   "scripts": {
     "s1": "node ./example/server/subapp1.js",
