@@ -1,13 +1,20 @@
-# FROM 是设置基础镜像，我们这里需要Node
-FROM node
-# ADD是将当前文件夹下的哪些文件添加到镜像中 参数是 [src,target]
-# 这里我们使用的 .  意思是所有文件，当然跟git一样，可以配置ignore文件
-ADD . /app/
-# EXPOSE是向外暴露的端口号
-EXPOSE 3000
-# WORKDIR是说工作目录，我们这里将文件添加到的是app目录，所以配置app目录为工作目录，这样就不用在命令行前面加/app了
-WORKDIR /app 
-# RUN是先要执行的脚本命令 
-RUN npm install
-# CMD是执行的cmd命令
-CMD ["node","./index.js"]
+# # FROM 是设置基础镜像，我们这里需要Node
+# FROM node
+# # ADD是将当前文件夹下的哪些文件添加到镜像中 参数是 [src,target]
+# # 这里我们使用的 .  意思是所有文件，当然跟git一样，可以配置ignore文件
+# ADD . /app/
+# # EXPOSE是向外暴露的端口号
+# EXPOSE 3000
+# # WORKDIR是说工作目录，我们这里将文件添加到的是app目录，所以配置app目录为工作目录，这样就不用在命令行前面加/app了
+# WORKDIR /app 
+# # RUN是先要执行的脚本命令 
+# RUN npm install
+# # CMD是执行的cmd命令
+# CMD ["node","./index.js"]
+
+
+FROM nginx
+
+COPY ./index.html /usr/share/nginx/html/index.html
+
+EXPOSE 80
