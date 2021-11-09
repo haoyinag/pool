@@ -9,8 +9,8 @@ before_install:
   - npm install -g parcel-bundler
 
 script:
+  - cd pool
   - parcel build ./index.js
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - cd pool
   - docker build -t docker:latest .
   - docker push docker:latest
