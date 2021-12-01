@@ -2,9 +2,9 @@
  * @Author: 郁南
  * @LastEditors: 郁南
  * @Date: 2021-11-30 08:02:02
- * @LastEditTime: 2021-11-30 08:11:33
- * @FilePath: /express/app/app.js
- * @Description: 
+ * @LastEditTime: 2021-12-01 08:15:35
+ * @FilePath: /app/app.js
+ * @Description:
  */
 const createError = require("http-errors");
 const express = require("express");
@@ -15,25 +15,32 @@ const logger = require("morgan");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 
-const users = require('./users');
+const users = require("./users"); 
 
 const app = express();
+function loggingMiddleware(req, res, next) {
+  const time = new Date();
+  console.log(111,`[${time.toLocaleString()}] ${req.method} ${req.url}`);
+  next();
+}
 
-app.get("/", (req, res) => {
-  res.send(users);
-});
+app.use(loggingMiddleware) 
 
-app.post("/", (req, res) => {
-  res.send("Req a post method");
-});
+// app.get("/", (req, res) => {
+//   res.send(users);
+// });
 
-app.put("/user", (req, res) => {
-  res.send("Req a put method");
-});
+// app.post("/", (req, res) => {
+//   res.send("Req a post method");
+// });
 
-app.delete("/user", (req, res) => {
-  res.send("Req a delete method");
-});
+// app.put("/user", (req, res) => {
+//   res.send("Req a put method");
+// });
+
+// app.delete("/user", (req, res) => {
+//   res.send("Req a delete method");
+// });
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -44,6 +51,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+ 
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
