@@ -1,0 +1,13 @@
+{
+  "name": "nodemon",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.15",
+    "nrm": "^1.2.5"
+  }
+}
