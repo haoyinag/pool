@@ -2,7 +2,7 @@
  * @Author: 郁南
  * @LastEditors: 郁南
  * @Date: 2021-12-09 08:25:42
- * @LastEditTime: 2021-12-20 08:20:33
+ * @LastEditTime: 2021-12-27 08:09:52
  * @FilePath: /pool/sequlizeDemo/src/app.js
  * @Description:
  */
@@ -18,8 +18,8 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(users);
-app.use(todos);
+app.use("/user", users);
+app.use("/todo", todos);
 
 app.use((err, req, res, next) => {
   if (err) {

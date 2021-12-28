@@ -2,7 +2,7 @@
  * @Author: 郁南
  * @LastEditors: 郁南
  * @Date: 2021-12-20 08:04:30
- * @LastEditTime: 2021-12-20 08:52:49
+ * @LastEditTime: 2021-12-28 08:26:28
  * @FilePath: /pool/sequlizeDemo/models/todo.js
  * @Description:
  */
@@ -23,12 +23,10 @@ module.exports = (sequelize, DataTypes) => {
     {
       name: DataTypes.STRING,
       content: DataTypes.STRING,
+      status: DataTypes.INTEGER,
       deadline: {
         type: DataTypes.DATE,
-        allowNull: false,
-        get(){
-          return "2021-12-20 08:00:00"
-        }
+        allowNull: false, 
       },
     },
     {
